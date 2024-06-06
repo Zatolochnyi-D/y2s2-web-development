@@ -12,3 +12,25 @@
 //  For user input “B” should return “B”
 //  For user input “” should return “Invalid value”
 // For user input “       “ should return “Invalid value”
+
+while (true) {
+    input = prompt("Enter the word.")
+
+    if (input == "Canceled.") {
+        break;
+    } else if (validateInput(input)) {
+        if (input.length % 2 == 0) {
+            result = input.substring(Math.floor(input.length / 2), Math.floor(input.length / 2) + 2)
+        } else {
+            result = input[Math.floor(input.length / 2)]
+        }
+        alert(result)
+    } else {
+        alert("Invalid value")
+    }
+}
+
+function validateInput(string) {
+    if (string == null) return false;
+    return string.replaceAll(" ", "") != ""
+}
